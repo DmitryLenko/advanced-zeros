@@ -1,12 +1,13 @@
 module.exports = function getZerosCount(number, base) {
-  var fact = (factorial(number))
-  console.log(fact);
+  var basecopy = base;
+  for (var prime = 2; prime <= base; prime++) {
+    if (basecopy % prime === 0) {
+      var power = 0;
+      while (basecopy % prime === 0) {
+        basecopy = basecopy / prime;  
+        power++;
+      }
+      console.log(prime, power);
+    }
+  } 
 };
-
-function factorial(value) {
-  if(value === 1) {
-    return 1;
-  } else {
-    return value * factorial(value - 1);
-  }
-}
