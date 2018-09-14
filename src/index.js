@@ -9,9 +9,15 @@ module.exports = function getZerosCount(number, base) {
         power++;
       }
       var counter = countPrimes(prime, number);
-      
+      if(zero > Math.floor(counter / power)) {
+        zero = Math.floor(counter / power);
+      } else {
+        break;
+      }
     }
-  } 
+  }
+  return zero;
+ 
 };
 
 
@@ -28,6 +34,5 @@ function countPrimes(prime, number) {
       }
     }     
   }
-  console.log(count);
   return count;
 }
