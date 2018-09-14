@@ -22,16 +22,10 @@ module.exports = function getZerosCount(number, base) {
 
 function countPrimes(prime, number) {
   var count = 0;
-  for(var i = prime; i <= number; i+=prime) {
-    var j = i;
-    while(true) {
-      if(j%prime != 0) {
-        break;
-      } else {
-        count++;
-        j = j/prime;
-      }
-    }     
+  var numberofprimes = Math.floor(number / prime);
+  while (numberofprimes > 0) {
+    count += numberofprimes;
+    numberofprimes = Math.floor(numberofprimes /prime);
   }
   return count;
 }
