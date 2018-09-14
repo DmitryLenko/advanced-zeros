@@ -12,7 +12,6 @@ module.exports = function getZerosCount(number, base) {
       if(zero > Math.floor(counter / power)) {
         zero = Math.floor(counter / power);
       } else {
-        break;
       }
     }
   }
