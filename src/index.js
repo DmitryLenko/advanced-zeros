@@ -1,4 +1,5 @@
 module.exports = function getZerosCount(number, base) {
+  var zero = Number.MAX_VALUE;
   var basecopy = base;
   for (var prime = 2; prime <= base; prime++) {
     if (basecopy % prime === 0) {
@@ -7,7 +8,26 @@ module.exports = function getZerosCount(number, base) {
         basecopy = basecopy / prime;  
         power++;
       }
-      console.log(prime, power);
+      var counter = countPrimes(prime, number);
+      
     }
   } 
 };
+
+
+function countPrimes(prime, number) {
+  var count = 0;
+  for(var i = prime; i <= number; i+=prime) {
+    var j = i;
+    while(true) {
+      if(j%prime != 0) {
+        break;
+      } else {
+        count++;
+        j = j/prime;
+      }
+    }     
+  }
+  console.log(count);
+  return count;
+}
